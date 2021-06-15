@@ -2,8 +2,8 @@ package people;
 
 public class Visitor {
 
-    public int age;
-    public double height;
+    private int age;
+    private double height;
     private double money;
 
     public Visitor(int age, double height, double money) {

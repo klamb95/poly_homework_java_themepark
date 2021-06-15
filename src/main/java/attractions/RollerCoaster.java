@@ -14,11 +14,7 @@ public class RollerCoaster  extends Attraction implements ISecurity, ITicketed {
 
     @Override
     public boolean isAllowedTo(Visitor visitor) {
-        if(visitor.age > 12 && visitor.height >145){
-            return true;
-        } else {
-            return false;
-        }
+        return visitor.getHeight() >= 145 && visitor.getAge() > 12;
     }
 
     @Override
@@ -28,8 +24,7 @@ public class RollerCoaster  extends Attraction implements ISecurity, ITicketed {
 
     @Override
     public double defaultPriceForVisitor(Visitor visitor) {
-        if(visitor.height > 200){
-            return (8.40)*2;
-        }
+       double multiplier = visitor.getHeight() >= 200 ? 2.0 : 1.0;
+       return defaultPrice() * multiplier;
     }
 }
